@@ -14,12 +14,13 @@ import java.util.Map;
 public class BillBoardParser {
 
     private static String NOT_AVAILABLE_STRING = "NOT AVAILABLE";
-    private static String BILL_BOARD_HOT_100_URL = "http://www.billboard.com/charts/hot-100";
-    private static String ARIA_TOP_50_URL = "http://www.ariacharts.com.au/chart/singles";
     private static String BILL_BOARD_HTML_LOOKUP_SONG = ".row-title h2";
     private static String BILL_BOARD_HTML_LOOKUP_ARTIST = ".row-title h3 a";
     private static String ARIA_HTML_LOOKUP_SONG = "div.col-6 h3";
     private static String ARIA_HTML_LOOKUP_ARTIST = "div.col-6 p";
+
+    public static String BILL_BOARD_HOT_100_URL = "http://www.billboard.com/charts/hot-100";
+    public static String ARIA_TOP_50_URL = "http://www.ariacharts.com.au/chart/singles";
 
     public static Map<String, String> getTop10Songs() {
         Map<String, String> songTitleAndArtist = new LinkedHashMap<String, String>();
