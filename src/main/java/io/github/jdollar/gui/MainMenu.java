@@ -6,6 +6,7 @@ import io.github.jdollar.writer.MsExcelWriter;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -72,7 +73,7 @@ public class MainMenu extends JFrame {
                 }
 
                 if (songInformationList != null && !songInformationList.isEmpty()) {
-                    MsExcelWriter.generateExcelFile(songInformationList, sheetNames, sheetHeaderColumns);
+                    MsExcelWriter.generateExcelFile(songInformationList, sheetNames, sheetHeaderColumns, new File(System.getProperty("user.home") + "\\topHitsProgram\\"));
                 }
             }
         });

@@ -20,11 +20,6 @@ public class BillBoardParser {
     private static String BILL_BOARD_HTML_LOOKUP_ARTIST = ".row-title h3 a";
     private static String ARIA_HTML_LOOKUP_SONG = "div.col-6 h3";
     private static String ARIA_HTML_LOOKUP_ARTIST = "div.col-6 p";
-    private String siteUrl;
-
-    BillBoardParser(String siteUrl) {
-        this.siteUrl = siteUrl;
-    }
 
     public static Map<String, String> getTop10Songs() {
         Map<String, String> songTitleAndArtist = new LinkedHashMap<String, String>();
@@ -68,7 +63,7 @@ public class BillBoardParser {
 
             iterateNElements(songTitleAndArtist, songTitleElements, songArtistElements, 10);
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
 
         return songTitleAndArtist;
@@ -84,7 +79,7 @@ public class BillBoardParser {
 
             iterateAllElements(songTitleAndArtist, songTitleElements, songArtistElements);
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
 
         return songTitleAndArtist;
