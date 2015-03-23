@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javafx.util.Pair;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -16,10 +17,10 @@ import org.apache.poi.ss.usermodel.Row;
  * Created by jdollar on 3/21/2015.
  */
 public class MsExcelWriter {
-    public static void generateExcelFile(List<Map<String, String>> songInformation, List<String> sheetName, List<List<String>> headerTitles, File folderToSave) {
+    public static void generateExcelFile(List<Map<Integer, Pair<String, String>>> songInformation, List<String> sheetName, List<List<String>> headerTitles, File folderToSave) {
         try {
             HSSFWorkbook workbook = new HSSFWorkbook();
-            for (Map<String, String> songInformationEntry : songInformation) {
+            for (Map<Integer, Pair<String, String>> songInformationEntry : songInformation) {
                 HSSFSheet sheet = workbook.createSheet(sheetName.get(songInformation.indexOf(songInformationEntry)));
 
                 sheet.createFreezePane(0, 1);
@@ -37,17 +38,14 @@ public class MsExcelWriter {
                 }
 
 
-                int songPosition = 1;
-                for (Map.Entry<String, String> songEntry : songInformationEntry.entrySet()) {
-                    Row row = sheet.createRow(songPosition);
+                for (Map.Entry<Integer, Pair<String, String>> songEntry : songInformationEntry.entrySet()) {
+                    Row row = sheet.createRow(songEntry.getKey()+1);
                     cell = row.createCell(0);
-                    cell.setCellValue(songPosition);
+                    cell.setCellValue(songEntry.getKey()+1);
                     cell = row.createCell(1);
-                    cell.setCellValue(songEntry.getKey());
+                    cell.setCellValue(songEntry.getValue().getKey());
                     cell = row.createCell(2);
-                    cell.setCellValue(songEntry.getValue());
-
-                    songPosition++;
+                    cell.setCellValue(songEntry.getValue().getValue());
                 }
 
                 sheet.autoSizeColumn(0);

@@ -2,6 +2,7 @@ package io.github.jdollar.gui;
 
 import io.github.jdollar.parser.BillBoardParser;
 import io.github.jdollar.writer.MsExcelWriter;
+import javafx.util.Pair;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -39,10 +40,10 @@ public class MainMenu extends JFrame {
         grabExcelDataButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                List<Map<String, String>> songInformationList = new ArrayList<Map<String, String>>();
+                List<Map<Integer, Pair<String, String>>> songInformationList = new ArrayList<Map<Integer, Pair<String, String>>>();
                 List<String> sheetNames = new ArrayList<String>();
                 List<List<String>> sheetHeaderColumns = new ArrayList<List<String>>();
-                Map<String, String> songInformation;
+                Map<Integer, Pair<String, String>> songInformation;
 
                 if (billboardTop10CheckBox.isSelected()) {
                     songInformation = BillBoardParser.getTop10Songs();
