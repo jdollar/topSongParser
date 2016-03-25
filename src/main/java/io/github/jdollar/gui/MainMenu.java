@@ -7,6 +7,7 @@ import javafx.util.Pair;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Dimension;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,20 +18,21 @@ import java.util.Map;
  * Created by jdollar on 3/22/2015.
  */
 public class MainMenu extends JFrame {
-    private JCheckBox billboardTop10CheckBox;
-    private JCheckBox billboardTop100CheckBox;
-    private JCheckBox ariaTop10CheckBox;
-    private JCheckBox ariaTop50CheckBox;
-    private JButton grabExcelDataButton;
-    private JButton exitButton;
-    private JPanel hiddenJPanel;
-    private JPanel mainJPanel;
-    private JPanel checkboxJPanel;
-    private JPanel buttonJPanel;
-    private JPanel titleJPanel;
+    private JCheckBox billboardTop10CheckBox = new JCheckBox();
+    private JCheckBox billboardTop100CheckBox = new JCheckBox();
+    private JCheckBox ariaTop10CheckBox = new JCheckBox();
+    private JCheckBox ariaTop50CheckBox = new JCheckBox();
+    private JButton grabExcelDataButton = new JButton();
+    private JButton exitButton = new JButton();
+    private JPanel hiddenJPanel = new JPanel();
+    private JPanel mainJPanel = new JPanel();
+    private JPanel checkboxJPanel = new JPanel();
+    private JPanel buttonJPanel = new JPanel();
+    private JPanel titleJPanel = new JPanel();
 
     public MainMenu() {
         super("Main Menu");
+        hiddenJPanel.setPreferredSize(new Dimension(500, 500));
         setContentPane(hiddenJPanel);
         pack();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
